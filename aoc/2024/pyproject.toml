@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.10"
 jupyter = "^1.1.1"
 ipykernel = "^6.29.5"
+poetry-plugin-dotenv = "^2.6.0"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
