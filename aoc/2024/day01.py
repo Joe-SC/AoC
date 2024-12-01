@@ -1,12 +1,11 @@
 """https://adventofcode.com/2024/day/1"""
 
 from collections import Counter
-from aoc.download_aoc_inputs import get_input_data
+from aoc_utils import fetch_input_data
 
-actual_input = get_input_data(2024, 1)
-
-
-sample_input = """3   4
+actual_input = fetch_input_data(2024, 1)
+sample_input = """\
+3   4
 4   3
 2   5
 1   3
@@ -21,16 +20,17 @@ def solve(inputs: str):
         a, b = map(int, line.split())
         list_a.append(a)
         list_b.append(b)
-    list_a, list_b = sorted(list_a), sorted(list_b)
-    counts = Counter(list_b)
+    list_a_sorted = sorted(list_a)
+    list_b_sorted = sorted(list_b)
     distance, similarity = 0, 0
-    for a, b in zip(list_a, list_b):
+    for a, b in zip(list_a_sorted, list_b_sorted):
         distance += abs(a - b)
-        similarity += a * counts[a]
+        similarity += sum([b for b in list_b_sorted if b == a])
 
-    print(f"Part 1: {distance}")
-    print(f"Part 2: {similarity}\n")
+    print(f"Distance: {distance}")
+    print(f"Similarity: {similarity}")
+    return
 
-
-solve(sample_input)
-solve(actual_input)
+if __name__ == "__main__":
+    solve(sample_input)
+    solve(actual_input)
