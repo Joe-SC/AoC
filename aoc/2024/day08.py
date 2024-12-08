@@ -101,6 +101,33 @@ def part_1_antinode_grid(grid: list[list[str]]) -> list[list[str]]:
                 antinode_locations.add((an_x, an_y))
     return antinode_grid, antinode_locations
 
+def part_2_antinode_grid(grid: list[list[str]]) -> list[list[str]]:
+    x_max, y_max = grid_shape(grid)
+    antinode_grid = copy.deepcopy(grid)
+    antinode_locations = set()
+    antenna_locations = search_antennas(grid)
+
+    for frequency, locations in antenna_locations.items():
+        for a1, a2 in product(locations, locations):
+            if a1 != a2:
+                dx, dy = distance(a1, a2)
+                multiplier = 1
+                is_out_of_bounds = False
+                while not is_out_of_bounds:
+                    an_x, an_y = a1[0] + (dx * multiplier), a1[1] + (dy * multiplier)
+                    is_out_of_bounds = (
+                        an_x < 0 or 
+                        an_x >= x_max or 
+                        an_y < 0 or 
+                        an_y >= y_max
+                    )
+                    if is_out_of_bounds:
+                        break
+                    antinode_grid[an_y][an_x] = '#'
+                    antinode_locations.add((an_x, an_y))
+                    multiplier += 1
+    return antinode_grid, antinode_locations
+
 if __name__=="__main__":
     sample_grid = convert_to_grid(sample_input)
     sample_antinode_grid, sample_antinode_locations = part_1_antinode_grid(sample_grid)
