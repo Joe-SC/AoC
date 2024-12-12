@@ -39,7 +39,6 @@ print("Part 1:", n_stones)
 
 
 def update_stones(curr_stones: defaultdict) -> defaultdict:
-   """Return a dictionary of changes to make: {stone_value: change_in_count}"""
    changes = defaultdict(int)
    
    for val, count in curr_stones.items():
@@ -61,13 +60,13 @@ def update_stones(curr_stones: defaultdict) -> defaultdict:
    return changes
 
 def change_stones_n_times(inputs: str, n: int) -> int:
-   # Start by counting how many of each stone value we have
+   # counting how many of each stone value we have
    curr_stones = defaultdict(int)
    for stone in inputs.split():
        curr_stones[int(stone)] += 1
    
    for _ in range(n):
-       # Get and apply all changes for this iteration
+       # get changes for this iteration
        changes = update_stones(curr_stones)
        for val, change in changes.items():
            curr_stones[val] += change
