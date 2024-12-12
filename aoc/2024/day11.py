@@ -49,10 +49,10 @@ def update_stones(curr_stones: defaultdict) -> defaultdict:
        if val == 0:
            changes[1] += count
        elif len(str(val)) % 2 == 0:
-           left = int(str(val)[:len(str(val))//2])
-           right = int(str(val)[len(str(val))//2:])
-           changes[left] += count
-           changes[right] += count
+           first_half = int(str(val)[:len(str(val))//2])
+           second_half = int(str(val)[len(str(val))//2:])
+           changes[first_half] += count
+           changes[second_half] += count
        else:
            new_val = val * 2024
            changes[new_val] += count
