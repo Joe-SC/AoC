@@ -1,7 +1,6 @@
 *.log
 *.txt
 *.pyc
-*.ipynb
 .vscode
 .venv
 .env
