@@ -1,3 +1,3 @@
 <h1> My Advent of Code Journey </h1>
 
-![](https://img.shields.io/badge/22%20stars-2024-black?logo=adventofcode&style=for-the-badge)
+![](https://img.shields.io/badge/25%20stars-2024-black?logo=adventofcode&style=for-the-badge)
