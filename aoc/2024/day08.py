@@ -91,25 +91,6 @@ def part_2_antinode_grid(grid: list[list[str]]) -> list[list[str]]:
 
     for frequency, locations in antenna_locations.items():
         for a1, a2 in product(locations, locations):
-<<<<<<< HEAD
-            if a1 != a2:
-                dx, dy = distance(a1, a2)
-                multiplier = 1
-                is_out_of_bounds = False
-                while not is_out_of_bounds:
-                    an_x, an_y = a1[0] + (dx * multiplier), a1[1] + (dy * multiplier)
-                    is_out_of_bounds = (
-                        an_x < 0 or 
-                        an_x >= x_max or 
-                        an_y < 0 or 
-                        an_y >= y_max
-                    )
-                    if is_out_of_bounds:
-                        break
-                    antinode_grid[an_y][an_x] = '#'
-                    antinode_locations.add((an_x, an_y))
-                    multiplier += 1
-=======
             if a1 == a2:
                 continue
                 
@@ -139,7 +120,6 @@ def part_2_antinode_grid(grid: list[list[str]]) -> list[list[str]]:
                     antinode_grid[curr_y][curr_x] = '#'
                     antinode_locations.add((curr_x, curr_y))
                 
->>>>>>> 9fd2e0a6752482ec9b84f54073b8864a333d58f9
     return antinode_grid, antinode_locations
 
 if __name__=="__main__":
