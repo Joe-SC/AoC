@@ -1,17 +1,11 @@
 """https://adventofcode.com/2024/day/14"""
 
 from aoc_utils import fetch_input_data
-import logging
-logging.basicConfig(level=logging.INFO)
-# logging.basicConfig(level=logging.DEBUG)
-from itertools import product
 import re
-import math
 import numpy as np 
 from collections.abc import Iterable
 import tqdm
 
-logger = logging.getLogger(__name__)
 actual_input = fetch_input_data(2024, 14)
 sample_input = """\
 p=0,4 v=3,-3
@@ -154,7 +148,7 @@ if __name__ == "__main__":
     p_final_0 = move_robots_n_steps(p0, v0, space=space, n=100)
     print("Part 1:", safety_factor(p_final_0, space=space))
 
-    # Part 2
+    # Part 2 - Search first 10000 steps for dense configurations
     p_history = simulate_robots(p0, v0, space=space, steps=10000)
     dense_configurations = find_dense_configurations(p_history)
 
