@@ -13,6 +13,7 @@ poetry-plugin-dotenv = "^2.6.0"
 python-dotenv = "^1.0.1"
 numpy = "^2.2.0"
 pandas = "^2.2.3"
+tqdm = "^4.67.1"
 
 
 [build-system]
