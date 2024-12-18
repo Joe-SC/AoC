@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Joe"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -14,6 +15,7 @@ python-dotenv = "^1.0.1"
 numpy = "^2.2.0"
 pandas = "^2.2.3"
 tqdm = "^4.67.1"
+networkx = "^3.4.2"
 
 
 [build-system]
